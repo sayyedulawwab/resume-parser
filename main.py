@@ -4,17 +4,17 @@ import json
 import spacy
 import pdfplumber
 import pytesseract
-import fitz  # PyMuPDF
 from sentence_transformers import SentenceTransformer, util
 from itertools import chain
-import difflib
 
-# Load spaCy model and sentence transformer
+# ----------------------------
+# Setup
+# ----------------------------
 nlp = spacy.load("en_core_web_lg")
 embedder = SentenceTransformer("all-MiniLM-L6-v2", cache_folder="./models")
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-# Expanded skills DB (can be external JSON file)
+# Load skills DB
 SKILLS_FILE = "./data/skills.json"
 if os.path.exists(SKILLS_FILE):
     with open(SKILLS_FILE, "r", encoding="utf-8") as f:
@@ -23,12 +23,11 @@ else:
     SKILLS_DB = []
     print(f"Warning: {SKILLS_FILE} not found. SKILLS_DB is empty.")
 
-    
 SKILL_EMBEDDINGS = embedder.encode(SKILLS_DB, convert_to_tensor=True)
 
-# ------------------------------------------------
+# ----------------------------
 # Helpers
-# ------------------------------------------------
+# ----------------------------
 
 def extract_text_from_pdf(path):
     text = ""
@@ -36,48 +35,48 @@ def extract_text_from_pdf(path):
         for page in pdf.pages:
             page_text = page.extract_text()
             if page_text:
-                text += page_text
+                text += page_text + "\n"
             else:
                 # fallback to OCR
                 page_image = page.to_image(resolution=300).original
-                text += pytesseract.image_to_string(page_image)
+                text += pytesseract.image_to_string(page_image) + "\n"
     return text.strip()
 
 def extract_text_from_image(path):
     return pytesseract.image_to_string(path)
 
 def clean_text(text):
-    return re.sub(r"\s+", " ", text).strip()
+    return re.sub(r"[ \t]+", " ", text).strip()
 
-# ------------------------------------------------
-# Core Extractors
-# ------------------------------------------------
+# ----------------------------
+# Extractors
+# ----------------------------
 
-def extract_name(text, lines_to_check=15):
+def extract_name(text, lines_to_check=20):
     lines = text.split("\n")[:lines_to_check]
     for line in lines:
         doc = nlp(line)
         for ent in doc.ents:
             if ent.label_ == "PERSON":
                 return ent.text
-    return None
+    # fallback to first line
+    return lines[0] if lines else None
 
 def extract_contact_info(text):
-    email = re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", text)
-    phone = re.findall(r"\+?\d[\d\-\s]{9,}\d", text)
-    return {"email": email, "phone": phone}
+    emails = re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", text)
+    phones = re.findall(r"\+?\d[\d\-\s]{9,}\d", text)
+    phones = [re.sub(r"\s+", "", p) for p in phones]
+    return {"email": emails, "phone": phones}
 
 def extract_links(text):
-    links = re.findall(r"(https?://[^\s]+)", text)
-    linkedin = [l for l in links if "linkedin.com" in l]
-    github = [l for l in links if "github.com" in l]
-    return {"linkedin": linkedin, "github": github, "other": list(set(links) - set(linkedin) - set(github))}
+    links = re.findall(r"(https?://[^\s|]+|www\.[^\s|]+)", text)
+    linkedin = [l for l in links if "linkedin.com" in l.lower()]
+    github = [l for l in links if "github.com" in l.lower()]
+    others = list(set(links) - set(linkedin) - set(github))
+    return {"linkedin": linkedin, "github": github, "other": others}
 
 def extract_skills(text):
-    if not SKILLS_DB:  # <-- check the list, not the tensor
-        return []
-
-    if SKILL_EMBEDDINGS is None or SKILL_EMBEDDINGS.numel() == 0:
+    if not SKILLS_DB or SKILL_EMBEDDINGS is None or SKILL_EMBEDDINGS.numel() == 0:
         return []
 
     doc = nlp(text)
@@ -95,44 +94,78 @@ def extract_skills(text):
         for j, score in enumerate(cosine_scores[i]):
             if score > 0.7:
                 matched_skills.add(SKILLS_DB[j])
-    return list(matched_skills)
 
-def extract_section(text, keywords):
-    """Improved section extractor: regex + fuzzy matching"""
+    # normalize and deduplicate
+    return sorted(set([s.strip().title() for s in matched_skills]))
+
+# ----------------------------
+# Section extractor
+# ----------------------------
+
+def extract_section_lines(text, keywords):
     lines = text.split("\n")
-    start, section_lines = None, []
-    for i, line in enumerate(lines):
+    section_lines = []
+    capture = False
+    for line in lines:
         norm = line.strip().lower()
-        if any(difflib.get_close_matches(k, [norm], cutoff=0.8) for k in keywords):
-            start = i
+        if any(k.lower() in norm for k in keywords):
+            capture = True
             continue
-        if start is not None:
-            if line.strip() == "" or re.match(r"^[A-Z][A-Z\s]+$", line):
+        if capture:
+            if line.strip() == "" or re.match(r"^[A-Z\s]+$", line):
                 break
             section_lines.append(line)
-    return " ".join(section_lines).strip()
+    return section_lines
+
+# ----------------------------
+# Experience & Education
+# ----------------------------
+
+DATE_PATTERN = r"([A-Za-z]{3}\s\d{4}|\d{2}/\d{4}|\d{4})\s*[-–]\s*([A-Za-z]{3}\s\d{4}|Present|\d{4})"
 
 def extract_experience(text):
-    exp_text = extract_section(text, ["experience", "employment", "work history"])
-    exp_blocks = re.split(r"\n\s*\n", exp_text)
+    lines = extract_section_lines(text, ["experience", "employment", "work history"])
     experiences = []
-    for block in exp_blocks:
-        dates = re.findall(r"(\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)?\s*\d{4}\b|\d{2}/\d{4}|\d{4})", block)
-        experiences.append({"text": block.strip(), "dates": dates})
+    current_exp = {}
+    for line in lines:
+        dates = re.findall(DATE_PATTERN, line)
+        if dates:
+            if current_exp:
+                experiences.append(current_exp)
+                current_exp = {}
+            current_exp["start_date"], current_exp["end_date"] = dates[0]
+            # Try to get role and company from line before
+            idx = lines.index(line)
+            if idx > 0:
+                parts = lines[idx-1].split(",")
+                current_exp["role"] = parts[0].strip()
+                current_exp["company"] = parts[1].strip() if len(parts) > 1 else None
+            current_exp["description"] = []
+        elif line.startswith(("-", "*", "•")):
+            current_exp.setdefault("description", []).append(line.lstrip("-*• ").strip())
+        else:
+            current_exp.setdefault("description", []).append(line.strip())
+    if current_exp:
+        experiences.append(current_exp)
     return experiences
 
 def extract_education(text):
-    edu_text = extract_section(text, ["education", "academics", "qualification"])
-    degrees = re.findall(r"(Bachelor|Master|PhD|B\.Sc|M\.Sc|B\.Eng|MBA)[^,\n]*", edu_text, re.IGNORECASE)
-    return {"raw": edu_text, "degrees": degrees}
+    lines = extract_section_lines(text, ["education", "academics", "qualification"])
+    education = []
+    for line in lines:
+        degree_match = re.findall(r"(Bachelor|Master|PhD|B\.Sc|M\.Sc|B\.Eng|MBA)[^,\n]*", line, re.IGNORECASE)
+        if degree_match:
+            edu = {"degree": degree_match[0].strip(), "institution": line.strip()}
+            education.append(edu)
+    return education
 
-# ------------------------------------------------
+# ----------------------------
 # Main Parser
-# ------------------------------------------------
+# ----------------------------
 
 def parse_resume(path, is_image=False):
     text = extract_text_from_image(path) if is_image else extract_text_from_pdf(path)
-    text = clean_text(text)
+    text = "\n".join([l.strip() for l in text.split("\n") if l.strip() != ""])  # preserve line breaks
 
     return {
         "name": extract_name(text),
@@ -141,7 +174,7 @@ def parse_resume(path, is_image=False):
         "skills": extract_skills(text),
         "experience": extract_experience(text),
         "education": extract_education(text),
-        "raw_text": text  # optional, for debugging
+        "raw_text": text
     }
 
 def parse_resumes_in_folder(folder_path):
@@ -153,9 +186,12 @@ def parse_resumes_in_folder(folder_path):
             parsed_data[file_name] = parse_resume(path, is_image=(ext != "pdf"))
     return parsed_data
 
+# ----------------------------
 # Example usage
+# ----------------------------
+
 if __name__ == "__main__":
-    folder = "./resumes"  # replace with your folder path
+    folder = "./resumes"
     all_resumes = parse_resumes_in_folder(folder)
     with open("parsed_resumes.json", "w", encoding="utf-8") as f:
         json.dump(all_resumes, f, indent=4, ensure_ascii=False)
