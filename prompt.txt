@@ -1,0 +1,59 @@
+Parse these resumes and generate a JSON as mentioned below. Angle brackets in the format is used as placeholders. Follow the rule mentioned inside the angle brackets. Make sure to parse all the resumes and generate a list of resumes
+
+Return ONLY a JSON array of resume objects. If there is no information, return [].
+
+Format (strict):
+[
+    {
+        "name": "<name of the person>",
+        "contacts": {
+            "email": [
+                "<email address>"
+            ],
+            "phone": [ "<phone number>" ]
+        },
+        "links": {
+            "linkedin": [ "<linkedin profile url like linkedin.com/in/username >" ],
+            "github": [ "<github profile url like github.com/username >" ],
+            "other": [ "<other profile urls like portfolio website but not project urls>" ]
+        },
+        "skills": [ "<list of skills>" ],
+        "experience": [
+            {
+                "company" : "<name of company>",
+                "position" : "<name of position or designation>",
+                "start_date" : "<start date in YYYY/MM/DD or YYYY/MM or YYYY format whichever available>",
+                "end_date" : "<start date in YYYY/MM/DD or YYYY/MM or YYYY format whichever available, if present is mentioned then 'present'>",
+                "description": "<description mentioned in the resume about experience in this company in one paragraph>"
+            }
+        ],
+        "education": [
+            {
+                "institution": "<institution name>",
+                "degree_name": "<degree name>"
+                "passing_year": "<passing year in YYYY format>"
+                "CGPA": "<CGPA in '3.00/4.00' format>"
+            }
+        ],
+        "projects": [
+            {
+                "name": "<project name>",
+                "github_link": "<github link of the project>",
+                "live_link": "<live url>",
+                "description": "<project description>"
+            }
+        ],
+
+        "certifications": [
+            {
+                "name": "<certification name>",
+                "certificate_link": "<certificate url if any>",
+                "issue_date": "<issue date of certificate in YYYY/MM/DD or YYYY/MM or YYYY format whichever available>",
+                "expiration_date": "<expiration date of certificate in YYYY/MM/DD or YYYY/MM or YYYY format whichever available>",
+                "description": "<certification description if any>"
+            }
+        ]
+    }
+]
+
+Now generate the JSON array in a JSON code block.

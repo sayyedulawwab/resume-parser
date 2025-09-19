@@ -9,6 +9,6 @@ wheels/
 # Virtual environments
 .venv
 
-resumes/*
-*.json
-models/*
+# resumes/*
+# *.json
+models

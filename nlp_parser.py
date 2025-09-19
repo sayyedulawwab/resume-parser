@@ -6,6 +6,7 @@ import pdfplumber
 import pytesseract
 from sentence_transformers import SentenceTransformer, util
 from itertools import chain
+import dateparser
 
 # ----------------------------
 # Setup
@@ -28,7 +29,6 @@ SKILL_EMBEDDINGS = embedder.encode(SKILLS_DB, convert_to_tensor=True)
 # ----------------------------
 # Helpers
 # ----------------------------
-
 def extract_text_from_pdf(path):
     text = ""
     with pdfplumber.open(path) as pdf:
@@ -49,9 +49,29 @@ def clean_text(text):
     return re.sub(r"[ \t]+", " ", text).strip()
 
 # ----------------------------
+# Section splitter
+# ----------------------------
+def split_sections(text):
+    headings = re.findall(r"^(?:[A-Z][A-Z\s/&]+)$", text, flags=re.MULTILINE)
+    sections = {}
+    lines = text.split("\n")
+    current_heading = None
+    buffer = []
+    
+    for line in lines + ["END_OF_TEXT"]:
+        norm = line.strip().upper()
+        if norm in headings or line == "END_OF_TEXT":
+            if current_heading:
+                sections[current_heading] = "\n".join(buffer).strip()
+                buffer = []
+            current_heading = norm if line != "END_OF_TEXT" else None
+        else:
+            buffer.append(line)
+    return sections
+
+# ----------------------------
 # Extractors
 # ----------------------------
-
 def extract_name(text, lines_to_check=20):
     lines = text.split("\n")[:lines_to_check]
     for line in lines:
@@ -59,7 +79,6 @@ def extract_name(text, lines_to_check=20):
         for ent in doc.ents:
             if ent.label_ == "PERSON":
                 return ent.text
-    # fallback to first line
     return lines[0] if lines else None
 
 def extract_contact_info(text):
@@ -95,78 +114,50 @@ def extract_skills(text):
             if score > 0.7:
                 matched_skills.add(SKILLS_DB[j])
 
-    # normalize and deduplicate
     return sorted(set([s.strip().title() for s in matched_skills]))
-
-# ----------------------------
-# Section extractor
-# ----------------------------
-
-def extract_section_lines(text, keywords):
-    lines = text.split("\n")
-    section_lines = []
-    capture = False
-    for line in lines:
-        norm = line.strip().lower()
-        if any(k.lower() in norm for k in keywords):
-            capture = True
-            continue
-        if capture:
-            if line.strip() == "" or re.match(r"^[A-Z\s]+$", line):
-                break
-            section_lines.append(line)
-    return section_lines
 
 # ----------------------------
 # Experience & Education
 # ----------------------------
-
-DATE_PATTERN = r"([A-Za-z]{3}\s\d{4}|\d{2}/\d{4}|\d{4})\s*[-–]\s*([A-Za-z]{3}\s\d{4}|Present|\d{4})"
+def parse_experience_block(block):
+    dates = re.findall(r"([A-Za-z]{3}\s\d{4}|\d{4}|Present)\s*[-–]\s*([A-Za-z]{3}\s\d{4}|\d{4}|Present)", block)
+    start_date, end_date = (None, None)
+    if dates:
+        start_date = str(dateparser.parse(dates[0][0]).date().year) if dates[0][0] != "Present" else "Present"
+        end_date = str(dateparser.parse(dates[0][1]).date().year) if dates[0][1] != "Present" else "Present"
+    lines = block.split("\n")
+    role_line = lines[0] if lines else ""
+    role, company = None, None
+    if "," in role_line:
+        parts = role_line.split(",")
+        role = parts[0].strip()
+        company = parts[1].strip() if len(parts) > 1 else None
+    description = [l.strip("-*• ").strip() for l in lines[1:] if l.strip()]
+    return {"start_date": start_date, "end_date": end_date, "role": role, "company": company, "description": description}
 
 def extract_experience(text):
-    lines = extract_section_lines(text, ["experience", "employment", "work history"])
-    experiences = []
-    current_exp = {}
-    for line in lines:
-        dates = re.findall(DATE_PATTERN, line)
-        if dates:
-            if current_exp:
-                experiences.append(current_exp)
-                current_exp = {}
-            current_exp["start_date"], current_exp["end_date"] = dates[0]
-            # Try to get role and company from line before
-            idx = lines.index(line)
-            if idx > 0:
-                parts = lines[idx-1].split(",")
-                current_exp["role"] = parts[0].strip()
-                current_exp["company"] = parts[1].strip() if len(parts) > 1 else None
-            current_exp["description"] = []
-        elif line.startswith(("-", "*", "•")):
-            current_exp.setdefault("description", []).append(line.lstrip("-*• ").strip())
-        else:
-            current_exp.setdefault("description", []).append(line.strip())
-    if current_exp:
-        experiences.append(current_exp)
+    sections = split_sections(text)
+    exp_text = sections.get("EXPERIENCE", "")
+    blocks = re.split(r"\n\s*\n", exp_text)
+    experiences = [parse_experience_block(b) for b in blocks if b.strip()]
     return experiences
 
 def extract_education(text):
-    lines = extract_section_lines(text, ["education", "academics", "qualification"])
+    sections = split_sections(text)
+    edu_text = sections.get("EDUCATION", "")
     education = []
-    for line in lines:
-        degree_match = re.findall(r"(Bachelor|Master|PhD|B\.Sc|M\.Sc|B\.Eng|MBA)[^,\n]*", line, re.IGNORECASE)
+    for line in edu_text.split("\n"):
+        degree_match = re.findall(r"(B\.?Sc|M\.?Sc|B\.?Eng|M\.?Eng|Bachelor|Master|PhD|MBA)[^,\n]*", line, re.IGNORECASE)
         if degree_match:
-            edu = {"degree": degree_match[0].strip(), "institution": line.strip()}
-            education.append(edu)
+            education.append({"degree": degree_match[0].strip(), "institution": line.strip()})
     return education
 
 # ----------------------------
 # Main Parser
 # ----------------------------
-
 def parse_resume(path, is_image=False):
     text = extract_text_from_image(path) if is_image else extract_text_from_pdf(path)
-    text = "\n".join([l.strip() for l in text.split("\n") if l.strip() != ""])  # preserve line breaks
-
+    text = "\n".join([l.strip() for l in text.split("\n") if l.strip() != ""])
     return {
         "name": extract_name(text),
         "contacts": extract_contact_info(text),
@@ -189,7 +180,6 @@ def parse_resumes_in_folder(folder_path):
 # ----------------------------
 # Example usage
 # ----------------------------
-
 if __name__ == "__main__":
     folder = "./resumes"
     all_resumes = parse_resumes_in_folder(folder)
