@@ -1,0 +1,901 @@
+[
+    {
+        "name": "Jordan Cutler",
+        "contacts": {
+            "email": [
+                "jordan.cutler.pa@gmail.com"
+            ],
+            "phone": []
+        },
+        "links": {
+            "linkedin": [
+                "linkedin.com/in/jordan-cutler"
+            ],
+            "github": [
+                "github.com/jordan-cutler"
+            ],
+            "other": []
+        },
+        "skills": [
+            "Typescript",
+            "Javascript",
+            "React",
+            "HTML",
+            "CSS",
+            "design systems",
+            "accessibility",
+            "web performance"
+        ],
+        "experience": [
+            {
+                "company": "Pinterest",
+                "position": "Senior Software Engineer",
+                "start_date": "2024",
+                "end_date": "present",
+                "description": "Driving web platform improvements for 500M+ monthly active users on the Web Platform team."
+            },
+            {
+                "company": "Qualified.com",
+                "position": "Senior Software Engineer",
+                "start_date": "2022",
+                "end_date": "2024",
+                "description": "Spearheaded new design system and frontend architecture used by 25+ engineers and 2K+ B2B customers, enhancing UI consistency, cutting development time, and minimizing UI bugs. Led creation of design system with 30+ components and migration from legacy components."
+            },
+            {
+                "company": "Gusto",
+                "position": "Senior Software Engineer",
+                "start_date": "2021",
+                "end_date": "2022",
+                "description": "Worked on Design Systems building UI components used by 200+ engineers. Built accessibility dashboard used by 40+ teams to identify and track accessibility improvements."
+            },
+            {
+                "company": "Gusto",
+                "position": "Software Engineer",
+                "start_date": "2019",
+                "end_date": "2021",
+                "description": "Worked on Financial Products leading org-wide initiatives, serving as frontend and GraphQL expert across 200+ engineers, and shipping products that help customers build financial wellness."
+            },
+            {
+                "company": "Dolomite",
+                "position": "Backend Tech Lead",
+                "start_date": "2018",
+                "end_date": "2019",
+                "description": "Built a 0 to 1 seed-funded cryptocurrency exchange at ~$2million/month trade volume. Led API architecture for cryptocurrency exchange and metrics product."
+            }
+        ],
+        "education": [
+            {
+                "institution": "Lehigh University",
+                "degree_name": "B.S Computer Science",
+                "passing_year": "",
+                "CGPA": ""
+            }
+        ],
+        "projects": [],
+        "certifications": []
+    },
+    {
+        "name": "Rafat Ahmad",
+        "contacts": {
+            "email": [
+                "rafat.ahmad94@gmail.com"
+            ],
+            "phone": [
+                "+8801833535972"
+            ]
+        },
+        "links": {
+            "linkedin": [],
+            "github": [],
+            "other": [
+                "rafatahmad.com"
+            ]
+        },
+        "skills": [
+            "C#",
+            "VB.NET",
+            "JavaScript",
+            "TypeScript",
+            "SQL",
+            "Bash",
+            "YAML",
+            ".NET Core",
+            "MVC",
+            "Angular",
+            "jQuery",
+            "Bootstrap",
+            "Material UI",
+            "Azure",
+            "Docker",
+            "Kubernetes",
+            "CI/CD",
+            "Terraform",
+            "MSSQL",
+            "MySQL",
+            "REST",
+            "SOAP",
+            "GraphQL",
+            "HTML",
+            "CSS",
+            "WebSocket",
+            "Azure DevOps",
+            "Git",
+            "Postman",
+            "OpenAPI",
+            "Visual Studio",
+            "VSCode",
+            "Repository Pattern",
+            "Factory Pattern",
+            "Singleton Pattern",
+            "Observer Pattern"
+        ],
+        "experience": [
+            {
+                "company": "Echologyx Ltd.",
+                "position": "Senior Software Engineer",
+                "start_date": "2024/08",
+                "end_date": "present",
+                "description": "Led backend for eSpares (UK retail), optimizing order, payment, and subscription modules with .NET 6. Deployed microservices using NServiceBus and RabbitMQ for scalability. Integrated Adyen gateway, achieving 99% payment success rate."
+            },
+            {
+                "company": "Fiftytwo Digital Ltd.",
+                "position": "Senior Software Engineer",
+                "start_date": "2022/09",
+                "end_date": "2024/05",
+                "description": "Modularized legacy retail platform to modular monolith, enhancing scalability. Built Low-Code/No-Code platform with Angular, cutting delivery time by 50%. Managed full-stack retail system with Auth0 authentication."
+            },
+            {
+                "company": "Ernst & Young",
+                "position": "Assistant Manager & Technical Lead",
+                "start_date": "2022/02",
+                "end_date": "2022/09",
+                "description": "Architected LMS Shop, a custom e-Commerce solution using .NET 5/6. Optimized ITRF Workflow Tool, improving travel authorization by 50%. Led API design and database optimization, boosting performance by 30%."
+            },
+            {
+                "company": "HawarIT Ltd.",
+                "position": "Software Engineer",
+                "start_date": "2020/02",
+                "end_date": "2022/01",
+                "description": "Built Rensa Family Company modules (cart, pricing, Stripe), handling 15k+ transactions. Automated document generation with Azure Blob, cutting processing by 70%. Implemented Azure KeyVault for 100% security compliance."
+            },
+            {
+                "company": "Tech One Global Ltd.",
+                "position": "Software Engineer",
+                "start_date": "2018/02",
+                "end_date": "2020/01",
+                "description": "Built paperless finance workflow for Banglalink, reducing approvals to 72-96 hours. Developed Loan Origination System for 8+ banks, processing $300M+ loans."
+            },
+            {
+                "company": "Southtech Ltd.",
+                "position": "Programmer",
+                "start_date": "2016/08",
+                "end_date": "2018/02",
+                "description": "Enhanced Ascend Banking Suite with 2FA and licensing logic, improving security. Built PKSF integration tools, reducing errors by 80%."
+            },
+            {
+                "company": "Orbit Informatix Ltd.",
+                "position": "Junior Software Engineer",
+                "start_date": "2016/05",
+                "end_date": "2016/08",
+                "description": "Developed HRMS modules, cutting processing time by 60%. Supported API and UI enhancements with jQuery and Bootstrap."
+            }
+        ],
+        "education": [
+            {
+                "institution": "American International University-Bangladesh",
+                "degree_name": "BSc in Computer Science & Software Engineering",
+                "passing_year": "2016",
+                "CGPA": "3.64/4.00"
+            }
+        ],
+        "projects": [],
+        "certifications": [
+            {
+                "name": "Certified Scrum Developer",
+                "certificate_link": "",
+                "issue_date": "2025/07",
+                "expiration_date": "",
+                "description": "ID: 001769242 from Scrum Alliance"
+            }
+        ]
+    },
+    {
+        "name": "Abdul Mueed",
+        "contacts": {
+            "email": [
+                "mueedmi@yahoo.com",
+                "mueedmi@gmail.com"
+            ],
+            "phone": [
+                "01915552821",
+                "02-8129915"
+            ]
+        },
+        "links": {
+            "linkedin": [],
+            "github": [],
+            "other": []
+        },
+        "skills": [
+            "HTML/DHTML",
+            "Crystal Reports",
+            "Java SE/J2SE",
+            "C++/VC++",
+            "MS SQL Server",
+            "UML",
+            "Visual Basic 6.0",
+            "XML",
+            "ASP"
+        ],
+        "experience": [
+            {
+                "company": "Al-amin group of industries ltd.",
+                "position": "Asst. Manager (IT)",
+                "start_date": "2007/01/07",
+                "end_date": "present",
+                "description": "Use best practices and methodologies to develop and maintain IT strategy. Analyze, assess, design and develop new technical design ideas. Develop, design and test new modules/functionality for ERP system DreamApps. Customize ERP software in various modules like Finance & Accounts, HR, Procurement, Inventory, Production, Material management, MRP."
+            },
+            {
+                "company": "Advansed ERP BD / OpenSesame BD pvt ltd",
+                "position": "Support Executive",
+                "start_date": "2005/01/07",
+                "end_date": "2007/01/02",
+                "description": "Analyzing scope for automation of manual business process. Customizing, developing and deploying online web based ERP software 'DreamApps' for corporate clients and production houses."
+            },
+            {
+                "company": "E-gen Solutions pvt.ltd",
+                "position": "Software Developer",
+                "start_date": "2003/03/01",
+                "end_date": "2004/11/30",
+                "description": "Understand client requirement, interpret into logical design. Maintain software development life cycle. Designing accounts/POS software using VB, Crystal Report."
+            }
+        ],
+        "education": [
+            {
+                "institution": "Bangalore University",
+                "degree_name": "B.Sc Computer Science",
+                "passing_year": "2001",
+                "CGPA": ""
+            }
+        ],
+        "projects": [],
+        "certifications": [
+            {
+                "name": "ABAP 4, SAP ECC 6.0",
+                "certificate_link": "",
+                "issue_date": "2009/02/09",
+                "expiration_date": "2009/04/10",
+                "description": "From D-Tek Consulting India"
+            }
+        ]
+    },
+    {
+        "name": "Anwar Hossain",
+        "contacts": {
+            "email": [
+                "s.anwar369@gmail.com",
+                "anwarcs36@yahoo.com"
+            ],
+            "phone": [
+                "01684403098",
+                "01721624499",
+                "01816854006"
+            ]
+        },
+        "links": {
+            "linkedin": [],
+            "github": [],
+            "other": []
+        },
+        "skills": [
+            "React",
+            "NodeJS",
+            "mongoDB",
+            "mongoose",
+            "JavaScript",
+            "Github",
+            "Git"
+        ],
+        "experience": [
+            {
+                "company": "Softworks Ltd",
+                "position": "Manager (Software Development)",
+                "start_date": "2007/01/01",
+                "end_date": "present",
+                "description": "Technical Team leading, System Study, Requirement Analysis, Project Coordinating, Prepare technical proposal, Report to higher management about project status, Communicating with clients, Project scheduling, System Architecture and Database Design, Development, Assist team members regarding new concept and technology, Project Implementation."
+            },
+            {
+                "company": "Gamma Communication Company Bangladesh Ltd.",
+                "position": "BSS Engineer",
+                "start_date": "2005/05/01",
+                "end_date": "2006/12/31",
+                "description": "BTS Installation & Commissioning, BSC & MSC Installation, BSC Commissioning, Testing, Troubleshooting, Rectifier Installation Commissioning & Integration, Documentation, Handover of site to operator, Site supervision, Working as a Team leader."
+            }
+        ],
+        "education": [
+            {
+                "institution": "National University",
+                "degree_name": "B.Sc in Computer Science",
+                "passing_year": "2003",
+                "CGPA": ""
+            }
+        ],
+        "projects": [],
+        "certifications": []
+    },
+    {
+        "name": "Bipul Chandra Kuri",
+        "contacts": {
+            "email": [
+                "Bipulkuri03@gmail.com"
+            ],
+            "phone": [
+                "+8801771188431",
+                "+8801615686567"
+            ]
+        },
+        "links": {
+            "linkedin": [],
+            "github": [],
+            "other": []
+        },
+        "skills": [],
+        "experience": [
+            {
+                "company": "Jogonnath Shorno Shilpaloy",
+                "position": "Cash & customer service",
+                "start_date": "2020/01/04",
+                "end_date": "2023/07/31",
+                "description": ""
+            }
+        ],
+        "education": [
+            {
+                "institution": "Chowmuhani Govt. S.A College",
+                "degree_name": "Masters of Business Administration (M.B.A.)",
+                "passing_year": "2020",
+                "CGPA": "3.02/4.00"
+            },
+            {
+                "institution": "Chowmuhani Govt. S.A College",
+                "degree_name": "Bachelor of Business Administration (B.B.A.)",
+                "passing_year": "2019",
+                "CGPA": "2.84/4.00"
+            }
+        ],
+        "projects": [],
+        "certifications": []
+    },
+    {
+        "name": "Adam Dalton",
+        "contacts": {
+            "email": [],
+            "phone": []
+        },
+        "links": {
+            "linkedin": [],
+            "github": [],
+            "other": []
+        },
+        "skills": [
+            "Ruby",
+            "Java",
+            "Javascript",
+            "Python",
+            "C",
+            "Ruby on Rails",
+            "JBoss",
+            "Metasploit",
+            "JQuery",
+            "D3",
+            "CentOS",
+            "Ubuntu",
+            "OSX",
+            "Debian",
+            "Postfix",
+            "Dovecot",
+            "Apache",
+            "Syslog"
+        ],
+        "experience": [
+            {
+                "company": "Institute for Human and Machine Cognition",
+                "position": "Research Associate",
+                "start_date": "2012",
+                "end_date": "present",
+                "description": "Conversation Understanding through Belief Interpretation and Sociolinguistic Modeling (CUBISM): Co-author on awarded proposal for DARPA DEFT project. Constructed system for dialogue understanding. Moving Target Defense (Computer Network Security): Wrote framework for generating baseline and attack traffic. Metaphor Extraction via Analysis of Language: Integrated multiple human language technology systems."
+            },
+            {
+                "company": "NASA",
+                "position": "Technical Lead - Information Architecture",
+                "start_date": "2008",
+                "end_date": "2012",
+                "description": "Responsible for managing information that supports ground services during tests, operations, and launch of spaceflight hardware. Led team of eight contractors and civil servants in development and test activities."
+            },
+            {
+                "company": "NASA",
+                "position": "Lead Developer",
+                "start_date": "2006",
+                "end_date": "2008",
+                "description": "Completed multi-paradigm simulation of workforce to analyze skill gaps and surpluses. Provided development capabilities for information systems responsible for improving management of projects."
+            },
+            {
+                "company": "Institute for Simulation and Training",
+                "position": "Research Associate",
+                "start_date": "2004/08",
+                "end_date": "2006/05",
+                "description": "Developed multi-paradigm distributed supply chain simulation using High Level Architecture. Research RFID technologies for applications in pathfinding with augmented reality."
+            }
+        ],
+        "education": [
+            {
+                "institution": "University of Florida",
+                "degree_name": "PhD in Computer Science",
+                "passing_year": "",
+                "CGPA": ""
+            },
+            {
+                "institution": "University of Central Florida",
+                "degree_name": "M.S. in Modeling and Simulation",
+                "passing_year": "2006",
+                "CGPA": ""
+            },
+            {
+                "institution": "McGill University",
+                "degree_name": "B.S. in Honours Computer Science",
+                "passing_year": "2004",
+                "CGPA": ""
+            }
+        ],
+        "projects": [],
+        "certifications": []
+    },
+    {
+        "name": "Md. Tanjim Morshed Bhuiyan",
+        "contacts": {
+            "email": [
+                "tanjim.morshed@gmail.com"
+            ],
+            "phone": [
+                "01714042149",
+                "01551042149"
+            ]
+        },
+        "links": {
+            "linkedin": [
+                "linkedin.com/in/tanjim"
+            ],
+            "github": [],
+            "other": []
+        },
+        "skills": [
+            "Project Management",
+            "IT System Management",
+            "Credit Administration",
+            "Risk Management",
+            "Business Development",
+            "Core Banking Software: Finacle, FlexCube, Temenos T24, Digital Banking"
+        ],
+        "experience": [
+            {
+                "company": "Community Bank Bangladesh PLC.",
+                "position": "Senior Vice President and Head of Digital Financial Services",
+                "start_date": "2025/04/20",
+                "end_date": "present",
+                "description": "Digital Banking App (Community Cash) Implementation & Operations, Corporate Internet Banking Implementation & Operations, Implementation of TakaPay and BanglaQR"
+            },
+            {
+                "company": "Community Bank Bangladesh PLC.",
+                "position": "Senior Vice President and Head of IT",
+                "start_date": "2023/07/01",
+                "end_date": "present",
+                "description": "CBS (Finacle 10.2.18) Implementation Project, CBS - SWITCH (Tranzware) Integration Project, Payment Systems (NIKASH, BACH, BEFTN, RTGS, IBFT) Implementation & Operations, Enterprise Application Implementation and Support"
+            },
+            {
+                "company": "Community Bank Bangladesh PLC.",
+                "position": "Senior Vice President and Deputy CRO",
+                "start_date": "2023/07/01",
+                "end_date": "present",
+                "description": "Implementation of Bank's Risk management functions, Development of Bank's Risk Appetite, Manage implementation of all aspects of risk function"
+            },
+            {
+                "company": "Community Bank Bangladesh PLC.",
+                "position": "Vice President & Head of Core Applications",
+                "start_date": "2019/03/21",
+                "end_date": "2023/06/30",
+                "description": "Implementation of CBS (Finacle), Process Development, Application Support Manager, Project Management"
+            },
+            {
+                "company": "Prime Bank PLC.",
+                "position": "Senior Assistant Vice President and Senior Manager at Business Process Re-engineering (BPR) Division",
+                "start_date": "2013/06/30",
+                "end_date": "2019/03/20",
+                "description": "Business Development Manager at Project Management Office, Project Coordinator at CBS implementation Project, Senior Manager at Business Process Re-engineering Division"
+            },
+            {
+                "company": "Dhaka Bank PLC.",
+                "position": "Credit Manager and In-charge of MIS & Reporting Unit",
+                "start_date": "2010/01/02",
+                "end_date": "2013/06/29",
+                "description": "Credit Administration"
+            },
+            {
+                "company": "Dhaka Bank PLC.",
+                "position": "Credit Officer",
+                "start_date": "2007/10/23",
+                "end_date": "2010/01/01",
+                "description": "Retail Banking"
+            },
+            {
+                "company": "eBizzSol",
+                "position": "Account Manager",
+                "start_date": "2006/05/01",
+                "end_date": "2007/09/30",
+                "description": "Software Business Analysis"
+            }
+        ],
+        "education": [
+            {
+                "institution": "Independent University, Bangladesh",
+                "degree_name": "Master of Business Administration (MBA)",
+                "passing_year": "2007",
+                "CGPA": "3.52/4.00"
+            },
+            {
+                "institution": "Independent University, Bangladesh",
+                "degree_name": "BSc in Computer Science",
+                "passing_year": "2005",
+                "CGPA": "3.88/4.00"
+            }
+        ],
+        "projects": [],
+        "certifications": [
+            {
+                "name": "Junior Associate of the Institute of Bankers, Bangladesh (JAIBB)",
+                "certificate_link": "",
+                "issue_date": "2014/12/01",
+                "expiration_date": "2026/06/01",
+                "description": ""
+            },
+            {
+                "name": "Diplomaed Associate of the Institute of Bankers, Bangladesh (DAIBB)",
+                "certificate_link": "",
+                "issue_date": "2015/12/01",
+                "expiration_date": "2026/06/01",
+                "description": ""
+            },
+            {
+                "name": "IT Passport Exam (ITPE)",
+                "certificate_link": "",
+                "issue_date": "2016/04/01",
+                "expiration_date": "2027/06/01",
+                "description": "Information Technology Professionals Examination Council (ITPEC), IPA, Japan"
+            },
+            {
+                "name": "Certified Project Management Professional (PMP)",
+                "certificate_link": "",
+                "issue_date": "2017/05/01",
+                "expiration_date": "2026/06/01",
+                "description": "Project Management Institute (PMI), USA"
+            },
+            {
+                "name": "ISO 27001:2013 Lead Auditor (LA)",
+                "certificate_link": "",
+                "issue_date": "2021/02/01",
+                "expiration_date": "2026/05/01",
+                "description": "CQI-IRCA"
+            },
+            {
+                "name": "Certified Six Sigma Black Belt (CSSBB)",
+                "certificate_link": "",
+                "issue_date": "2024/12/01",
+                "expiration_date": "2029/05/01",
+                "description": "The Council for Six Sigma Certification"
+            },
+            {
+                "name": "Certified Expert in Risk Management (CERM)",
+                "certificate_link": "",
+                "issue_date": "2025/04/01",
+                "expiration_date": "2027/05/01",
+                "description": "Frankfurt School of Finance & Management and BIBM"
+            }
+        ]
+    },
+    {
+        "name": "Muhammad Sayyedul Awwab",
+        "contacts": {
+            "email": [
+                "sayyedulawwab@gmail.com"
+            ],
+            "phone": []
+        },
+        "links": {
+            "linkedin": [
+                "linkedin.com/in/sayyedulawwab"
+            ],
+            "github": [
+                "github.com/sayyedulawwab"
+            ],
+            "other": [
+                "sayyedulawwab.com"
+            ]
+        },
+        "skills": [
+            "C#",
+            "JavaScript",
+            "ASP.NET Core",
+            "Entity Framework Core",
+            "Dapper",
+            "MediatR",
+            "FluentValidation",
+            "xUnit",
+            "Serilog",
+            "OpenTelemetry",
+            "REST APIs",
+            "Microservices",
+            "Modular Monolith",
+            "Clean Architecture",
+            "CQRS",
+            "Domain-Driven Design (DDD)",
+            "Repository Pattern",
+            "SQL Server",
+            "PostgreSQL",
+            "MongoDB",
+            "Redis",
+            "RabbitMQ",
+            "NServiceBus",
+            "MassTransit",
+            "Git",
+            "GitHub",
+            "Docker",
+            "Azure DevOps",
+            "CI/CD",
+            "JIRA"
+        ],
+        "experience": [
+            {
+                "company": "Epyllion Group",
+                "position": "Senior Programmer",
+                "start_date": "2025/07",
+                "end_date": "present",
+                "description": "Design and develop backend services using .NET Core following CQRS, Clean Architecture, and DDD, ensuring scalability and maintainability. Build secure, high-performance APIs integrated with React frontend. Contribute to CI/CD pipelines in Azure DevOps."
+            },
+            {
+                "company": "Echologyx Ltd. UK",
+                "position": "Software Engineer",
+                "start_date": "2024/10",
+                "end_date": "2025/07",
+                "description": "Contributed to highly scalable e-commerce platform (30+ interconnected microservices) built with .NET. Developed backend services using CQRS, Clean Architecture, and Repository Pattern. Implemented inter-service communication using NServiceBus and wrote unit tests with xUnit."
+            },
+            {
+                "company": "Bdjobs.com Ltd.",
+                "position": "Junior Software Engineer",
+                "start_date": "2022/09",
+                "end_date": "2024/09",
+                "description": "Resolved 200+ critical production issues in employer system. Automated invoice generation for online payments of job posting services, reducing manual processing by 60%. Led migration of Job Posting System from legacy technology to .NET Core Web API."
+            }
+        ],
+        "education": [
+            {
+                "institution": "Bangladesh University of Professionals (BUP)",
+                "degree_name": "BSc in Information and Communications Engineering",
+                "passing_year": "2022",
+                "CGPA": "3.68/4.00"
+            }
+        ],
+        "projects": [
+            {
+                "name": "E-commerce Microservice",
+                "github_link": "github.com/sayyedulawwab/e-commerce-microservice",
+                "live_link": "",
+                "description": "Designed distributed e-commerce platform with Catalog, Identity, Ordering, Cart, and Payment microservices behind API Gateway. Developed backend services using .NET Core, CQRS, Clean Architecture, and DDD. Integrated RabbitMQ for Event Driven Communication, Redis for caching, and SQL Server for persistence."
+            }
+        ],
+        "certifications": []
+    },
+    {
+        "name": "Susan Rindt",
+        "contacts": {
+            "email": [],
+            "phone": []
+        },
+        "links": {
+            "linkedin": [],
+            "github": [
+                "github.com/drrindt/resume"
+            ],
+            "other": []
+        },
+        "skills": [
+            "Prolonged Exposure Therapy",
+            "Cognitive Processing Therapy",
+            "EMDR",
+            "Cognitive Behavioral Therapy",
+            "Family Systems Theory",
+            "Psychological Testing",
+            "Trauma Treatment",
+            "Substance Abuse Treatment",
+            "Program Development",
+            "Clinical Supervision"
+        ],
+        "experience": [
+            {
+                "company": "Aurora Behavioral Healthcare",
+                "position": "Clinical Director of Military Programs",
+                "start_date": "2008/04",
+                "end_date": "present",
+                "description": "Program development and management of intensive inpatient residential treatment program for active duty servicemembers and their families. Manage staff of 15 directly and oversee operations of multiple departments. Provide direct therapy treatment for PTSD and co-occurring substance use disorders."
+            },
+            {
+                "company": "Aurora Behavioral Healthcare",
+                "position": "Director of Psychology",
+                "start_date": "2007/04",
+                "end_date": "present",
+                "description": "Clinical supervision and training of predoctoral and postdoctoral interns in group therapy, individual therapy, psychological testing batteries, and initial assessment in acute psychiatric population."
+            },
+            {
+                "company": "Private Practice/Hospital Consultant",
+                "position": "Clinical Private Practice",
+                "start_date": "2003/08",
+                "end_date": "present",
+                "description": "Treatment modalities: Individual psychotherapy using variety of therapeutic techniques including Cognitive Behavioral Therapy, family systems theory, and insight-oriented modalities. Consulting and Training Services."
+            },
+            {
+                "company": "Alvarado Parkway Institute",
+                "position": "Assistant Director of Psychological Services",
+                "start_date": "2003/08",
+                "end_date": "2004/01",
+                "description": "Clinical supervision and training of predoctoral and postdoctoral interns in group therapy, individual therapy, testing batteries, and initial assessment. Group and individual therapy with acute inpatient and outpatient psychiatric patients."
+            }
+        ],
+        "education": [
+            {
+                "institution": "California School of Professional Psychology",
+                "degree_name": "PsyD Clinical Psychology - Family Track",
+                "passing_year": "2002",
+                "CGPA": ""
+            },
+            {
+                "institution": "California School of Professional Psychology",
+                "degree_name": "MA Clinical Psychology",
+                "passing_year": "2000",
+                "CGPA": ""
+            },
+            {
+                "institution": "University of Stirling",
+                "degree_name": "BSc (Hons) Psychology",
+                "passing_year": "1998",
+                "CGPA": ""
+            }
+        ],
+        "projects": [],
+        "certifications": [
+            {
+                "name": "Certified Prolonged Exposure Therapy Clinician",
+                "certificate_link": "",
+                "issue_date": "",
+                "expiration_date": "",
+                "description": "Center for the Treatment & Study of Anxiety, University of Pennsylvania"
+            },
+            {
+                "name": "Certified Prolonged Exposure Therapy Trainer (in progress)",
+                "certificate_link": "",
+                "issue_date": "",
+                "expiration_date": "",
+                "description": "Center for the Treatment & Study of Anxiety, University of Pennsylvania"
+            }
+        ]
+    },
+    {
+        "name": "Siddhant Fulzele",
+        "contacts": {
+            "email": [
+                "siddhantfulzele735@gmail.com"
+            ],
+            "phone": [
+                "9967589229"
+            ]
+        },
+        "links": {
+            "linkedin": [
+                "linkedin.com/in/siddfulzele"
+            ],
+            "github": [
+                "github.com/siddfulzele"
+            ],
+            "other": [
+                "siddfulzele.github.io/Resume/"
+            ]
+        },
+        "skills": [
+            "Python",
+            "SQL",
+            "PowerBI",
+            "Data Science",
+            "SSIS",
+            "ETL",
+            "C-Sharp",
+            "Data Analyst",
+            "BI Developer",
+            "ETL Developer",
+            "SQL Developer",
+            "Power BI",
+            "Python Flask",
+            "ML",
+            "MS SQL",
+            "NLP",
+            "MySQL",
+            "Linux",
+            "PHP Laravel",
+            "Java Spring",
+            "Python Django",
+            "Streamlit",
+            "DL",
+            "CNN",
+            "Image Processing"
+        ],
+        "experience": [
+            {
+                "company": "Credenca Data Solution Pvt. Ltd",
+                "position": "Data Engineer - Consultant",
+                "start_date": "2021/01",
+                "end_date": "present",
+                "description": "Worked with multiple International/National clients in domain of production and service as BI Developer, ETL Developer, SQL Developer, Power BI"
+            },
+            {
+                "company": "GDP Churn Pvt. Ltd",
+                "position": "Data Analyst",
+                "start_date": "2019/04",
+                "end_date": "2019/08",
+                "description": ""
+            }
+        ],
+        "education": [
+            {
+                "institution": "Fergusson College, Pune",
+                "degree_name": "Masters in Data Science",
+                "passing_year": "2021",
+                "CGPA": "9.3/10.0"
+            },
+            {
+                "institution": "University of Mumbai",
+                "degree_name": "Bachelor in Information Technology",
+                "passing_year": "2019",
+                "CGPA": "9.3/10.0"
+            }
+        ],
+        "projects": [
+            {
+                "name": "MatchMaking App (Recommendation System)",
+                "github_link": "",
+                "live_link": "",
+                "description": "Python Flask, ML, MS SQL, NLP"
+            },
+            {
+                "name": "Covid 19 India Analysis",
+                "github_link": "",
+                "live_link": "",
+                "description": "Web Developer Python Flask, ML, NLP"
+            },
+            {
+                "name": "E-GramPanchayat",
+                "github_link": "",
+                "live_link": "",
+                "description": "Python Flask, MySQL"
+            },
+            {
+                "name": "Digit and Character Recognization",
+                "github_link": "",
+                "live_link": "",
+                "description": "Python Streamlit, DL, CNN, Image Processing"
+            },
+            {
+                "name": "Drowsiness Detection",
+                "github_link": "",
+                "live_link": "",
+                "description": "Python, Image processing"
+            }
+        ],
+        "certifications": []
+    }
+]

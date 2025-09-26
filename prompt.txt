@@ -13,8 +13,8 @@ Format (strict):
             "phone": [ "<phone number>" ]
         },
         "links": {
-            "linkedin": [ "<linkedin profile url like linkedin.com/in/username >" ],
-            "github": [ "<github profile url like github.com/username >" ],
+            "linkedin": [ "<linkedin profile url like linkedin.com/in/<username> >" ],
+            "github": [ "<github profile url like github.com/<username> >" ],
             "other": [ "<other profile urls like portfolio website but not project urls>" ]
         },
         "skills": [ "<list of skills>" ],
